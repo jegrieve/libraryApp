@@ -1,0 +1,19 @@
+h1 {
+    text-align:center;
+}
+
+.container {
+    display:none;
+    text-align:center;
+}
+
+#new-book {
+    text-align: center;
+    width: 30%;
+    height: 3em;
+}
+
+.new-input {
+    margin-top: 5em;
+    text-align: center;
+}
