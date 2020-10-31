@@ -1,39 +1,35 @@
-//myLibrary will contain book objects
 let myLibrary = [];
 
-//NEW BOOK Button
 const newBookButton = document.getElementById("new-book");
 newBookButton.addEventListener("click", bringUpInputs);
-//Brings up the inputs
+
 function bringUpInputs() {
     const inputs = document.querySelector(".container")
     inputs.style.display = "block";
     newBookButton.style.display = "none";
 };
-//Book Constructor
+
 function Book(author, title, numPages, read) {
     this.author = author;
     this.title = title;
     this.numPages = numPages;
     this.read = read;
 };
-//Submit Book Button
+
 const submitButton = document.getElementById("submit-btn")
 submitButton.addEventListener("click", addBookToLibrary);
+submitButton.addEventListener("click", function(e) {
+    e.preventDefault();
+});
 
-//Clicking submit button will add object to myLibrary array.
+
 function addBookToLibrary() {
-    //make sure all inputs are full
     [author, title, numPages, read] = getInputs();
     let newBook = new Book(author, title, numPages, read);
     myLibrary.push(newBook);
     updateBooks();
 };
-{/* <input type = "text" id = "author-input" placeholder = "Author">
-<input type = "text" id = "title-input" placeholder = "Title">
-<input type = "number" id = "pages-input" placeholder = "Number of pages">
-<label for ="read-input">Read:</label>
-<input type = "checkbox" id = "read-input"> */}
+
 function getInputs() {
     let inputs = [];
     const authorInput = document.getElementById("author-input");
@@ -59,14 +55,6 @@ function resetInputs(author, title, pages, read) {
     read.checked = false;
 }
 
-// let btn = document.createElement("button")
-// btn.innerHTML = "Delete"
-// btn.classList.add("delete-btn")
-
-// let btn2 = document.createElement("button")
-// btn2.innerHTML = "Delete2"
-// btn2.classList.add("delete-btn")
-
 function updateBooks() {
     document.querySelector(".cards").innerHTML = "";
     myLibrary.forEach((book, i) => {
@@ -90,12 +78,9 @@ function formatBook(book) {
     return newCardText.innerHTML
 };
 
-//Function that loops through myLibrary array
-//It will display each book to the page
-//
-
 function makeDeleteButton() {
     let button = document.createElement("button")
+    button.classList.add("delete-btn")
     button.innerHTML = "Delete"
     button.addEventListener("click", deleteBook)
     return button
@@ -103,6 +88,7 @@ function makeDeleteButton() {
 
 function makeToggleReadButton() {
     let button = document.createElement("button")
+    button.classList.add("toggle-btn")
     button.innerHTML = "Toggle"
     button.addEventListener("click", toggleBook)
     return button
