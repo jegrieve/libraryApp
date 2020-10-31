@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>libraryApp</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>My Library</h1>
+    <form action = "/" method = "GET">
     <div class = "container">
-        <input type = "text" id = "author-input" placeholder = "Author" maxlength="15">
-        <input type = "text" id = "title-input" placeholder = "Title" maxlength="50">
-        <input type = "number" id = "pages-input" placeholder = "Number of pages">
+        <input type = "text" id = "author-input" placeholder = "Author" maxlength="15" required>
+        <input type = "text" id = "title-input" placeholder = "Title" maxlength="50" required>
+        <input type = "number" id = "pages-input" placeholder = "Number of pages" required>
         <label for ="read-input">Read:</label>
         <input type = "checkbox" id = "read-input">
         <button type = "submit" id = "submit-btn">Submit</button>
     </div>
+    </form>
     <div class = "new-input">
         <button id = "new-book">
             NEW BOOK 
