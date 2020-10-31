@@ -1,5 +1,30 @@
 let myLibrary = [];
 
+function checkLocalStorage() {
+    if (localStorage.length !== 0) {
+        getLocalStorage();
+    };
+};
+
+function getLocalStorage() {
+    let storageKeys = Object.keys(localStorage);
+    storageKeys.sort();
+    storageKeys.forEach((i) => {
+        let retrievedObject = localStorage.getItem(i);
+        myLibrary.push(JSON.parse(retrievedObject))
+    });
+    updateBooks();
+};
+
+function updateLocalStorage() {
+    localStorage.clear();
+    myLibrary.forEach((book, i) => {
+        let stringifiedBook = JSON.stringify(book)
+        localStorage.setItem(i, stringifiedBook)
+    })
+    updateBooks();
+};;
+
 const newBookButton = document.getElementById("new-book");
 newBookButton.addEventListener("click", bringUpInputs);
 
@@ -28,6 +53,7 @@ function addBookToLibrary() {
     let newBook = new Book(author, title, numPages, read);
     myLibrary.push(newBook);
     updateBooks();
+    updateLocalStorage();
 };
 
 function getInputs() {
@@ -73,7 +99,7 @@ function updateBooks() {
 function formatBook(book) {
     let newCardText = document.createElement("p");
     let br = document.createElement("br")
-    let readStatus = book.read ? "Read" : "Not Read"
+    let readStatus = book.read ? "Read &#10003" : "Not Read  &#x2717"
     newCardText.innerHTML = `Author: ${book.author} <br> <br> Title: ${book.title} <br> <br>  Pages:${book.numPages} <br> <br>  ${readStatus} <br> <br>`
     return newCardText.innerHTML
 };
@@ -98,6 +124,7 @@ function deleteBook(e) {
     let bookId = e.target.parentNode.id
     myLibrary.splice(bookId, 1);
     updateBooks();
+    updateLocalStorage()
 };
 
 function toggleBook(e) {
@@ -109,4 +136,7 @@ function toggleBook(e) {
         myLibrary[bookId].read= true
     }
     updateBooks();
+    updateLocalStorage()
 };
+
+checkLocalStorage();
