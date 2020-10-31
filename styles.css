@@ -1,3 +1,8 @@
+body {
+    background-color: rgba(42, 110, 199, 0.5);
+    font-family: 'Open Sans', sans-serif;
+}
+
 h1 {
     text-align:center;
 }
@@ -7,10 +12,15 @@ h1 {
     text-align:center;
 }
 
+#submit-btn {
+    background-color:  rgba(16, 186, 238, 0.9);
+}
+
 #new-book {
     text-align: center;
     width: 30%;
     height: 3em;
+    background-color:rgba(17, 205, 238, 0.5);
 }
 
 .new-input {
@@ -18,9 +28,9 @@ h1 {
     text-align: center;
 }
 
-/* .cards {
-
-} */
+input {
+    background-color: rgba(255, 255, 255, 0.9);
+}
 
 .book-card {
     display: inline-block;
@@ -29,8 +39,17 @@ h1 {
     height: 20%;
     padding: 1%;
     margin: 1%;
+    background-color:  rgba(11, 86, 184, 0.5);
 }
 
 .delete-btn {
-    
+   width: 40%;
+   margin-left: 5%;
+   background-color: red;
+}
+
+.toggle-btn {
+    width: 40%;
+    margin-left: 10%;
+    background-color:  rgba(16, 186, 238, 0.9);
 }
