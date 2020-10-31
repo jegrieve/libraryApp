@@ -17,3 +17,20 @@ h1 {
     margin-top: 5em;
     text-align: center;
 }
+
+/* .cards {
+
+} */
+
+.book-card {
+    display: inline-block;
+    border: 1px solid black;
+    width: 20%;
+    height: 20%;
+    padding: 1%;
+    margin: 1%;
+}
+
+.delete-btn {
+    
+}
