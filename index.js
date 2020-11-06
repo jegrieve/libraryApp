@@ -1,3 +1,12 @@
+class Book {
+    constructor(author, title, numPages, read) {
+        this.author = author;
+        this.title = title;
+        this.numPages = numPages;
+        this.read = read;
+    };
+}
+
 let myLibrary = [];
 
 function checkLocalStorage() {
@@ -32,13 +41,6 @@ function bringUpInputs() {
     const inputs = document.querySelector(".container")
     inputs.style.display = "block";
     newBookButton.style.display = "none";
-};
-
-function Book(author, title, numPages, read) {
-    this.author = author;
-    this.title = title;
-    this.numPages = numPages;
-    this.read = read;
 };
 
 const submitButton = document.getElementById("submit-btn")
